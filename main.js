@@ -1,2 +1,4 @@
+import { expgen } from "./scripts/expgen.js";
+
 const EXP_DIV = document.getElementById("expression");
-EXP_DIV.innerText = "1 x 1 = 1";
+EXP_DIV.innerText = expgen().join(" ") + " = ";
