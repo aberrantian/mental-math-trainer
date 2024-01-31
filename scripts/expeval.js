@@ -14,8 +14,15 @@ function subtract(a, b) {
   return a - b;
 }
 
-export function expEval(exp) {
-  console.log(exp);
+function cloneArray(array) {
+  let new_array = [];
+
+  for (let index = 0; index < array.length; index++) {
+    new_array[index] = array[index];
+  }
+
+  return new_array;
+}
   let result;
 
     for (let index = 0; index < exp.length; index++) {
