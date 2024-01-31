@@ -46,6 +46,30 @@ function operate(operand_a, operator, operand_b) {
 
   return result;
 }
+
+function replace(first_half, replacement, second_half) {
+  let new_array = [];
+
+  if (Array.isArray(first_half)) {
+    for (let index = 0; index < first_half.length; index++) {
+      new_array.push(first_half[index]);
+    }
+  } else {
+    new_array.push(first_half);
+  }
+
+  new_array.push(replacement);
+
+  if (Array.isArray(second_half)) {
+    for (let index = 0; index < second_half.length; index++) {
+      new_array.push(second_half[index]);
+    }
+  } else {
+    new_array.push(second_half);
+  }
+
+  return new_array;
+}
   let result;
 
     for (let index = 0; index < exp.length; index++) {
