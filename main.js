@@ -12,3 +12,15 @@ const WARNING = document.createElement("div");
 WARNING.innerText = "This version of the project is incomplete!";
 WARNING.style = "font-size: 0.8rem;font-weight: bold;position: absolute;top: 0px;background-color: red; width: 100%;"
 document.body.append(WARNING);
+
+const NEW_EXP = document.createElement("button");
+NEW_EXP.innerText = "new";
+NEW_EXP.style = "position: absolute; top: 32px"
+
+NEW_EXP.addEventListener('click', () => {
+    exp = expGen();
+    answer = expEval(exp);
+    EXP_DIV.innerText = exp.join(" ") + " = " + answer;
+});
+
+document.body.append(NEW_EXP);
