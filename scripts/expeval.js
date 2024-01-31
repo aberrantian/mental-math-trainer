@@ -73,25 +73,13 @@ function replace(first_half, replacement, second_half) {
 
 function PEMDAS(array) {
   for (let index = 0; index < array.length; index++) {
-    if (array[index] === "*") {
+    if (array[index] === "*" || array[index] === "/") {
       return index;
     }    
   }
 
   for (let index = 0; index < array.length; index++) {
-    if (array[index] === "/") {
-      return index;
-    }    
-  }
-
-  for (let index = 0; index < array.length; index++) {
-    if (array[index] === "+") {
-      return index;
-    }    
-  }
-
-  for (let index = 0; index < array.length; index++) {
-    if (array[index] === "-") {
+    if (array[index] === "+" || array[index] === "-") {
       return index;
     }    
   }
@@ -124,7 +112,3 @@ export function expEval(exp = [3, "+", 4, "/", 5, "*", 6, "+", 5]) {
     return working_expression[0];
   }
 }
-
-/*
-does not perform operations in order of PEMDAS
-*/
