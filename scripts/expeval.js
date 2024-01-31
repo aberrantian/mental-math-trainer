@@ -70,13 +70,28 @@ function replace(first_half, replacement, second_half) {
 
   return new_array;
 }
+
+export function expEval(exp = [3, "+", 4, "/", 5, "*", 6, "+", 5]) {
+  console.log("exp =", exp);
   let result;
 
     for (let index = 0; index < exp.length; index++) {
-      if (exp[index] === "*") {
+      if (["*", "/", "+", "-"].includes(exp[index])) {
+        let a_index = index -1;
+        let b_index = index +1;
 
+        let a = exp[a_index];
+        let b = exp[b_index];
+
+        result = replace(exp.slice(0, a_index), operate(a, exp[index], b), exp.slice(b_index +1));
+        break;
       }
     }
 
+  console.log(result);
   return result;
 }
+
+/*
+does not perform operations in order of PEMDAS
+*/
