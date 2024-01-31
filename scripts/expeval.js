@@ -88,7 +88,7 @@ function PEMDAS(array) {
   return;
 }
 
-export function expEval(exp = [3, "+", 4, "/", 5, "*", 6, "+", 5]) {
+export function expEval(exp) {
   let working_expression = cloneArray(exp)
   console.log(working_expression)
   let target_operator = PEMDAS(working_expression);
