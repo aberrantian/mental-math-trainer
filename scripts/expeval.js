@@ -71,6 +71,35 @@ function replace(first_half, replacement, second_half) {
   return new_array;
 }
 
+function PEDMAS(array) {
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] === "*") {
+      return index;
+    }    
+  }
+
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] === "/") {
+      return index;
+    }    
+  }
+
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] === "+") {
+      return index;
+    }    
+  }
+
+  for (let index = 0; index < array.length; index++) {
+    if (array[index] === "-") {
+      return index;
+    }    
+  }
+
+  console.log("PEMDAS did not find anything");
+  return;
+}
+
 export function expEval(exp = [3, "+", 4, "/", 5, "*", 6, "+", 5]) {
   console.log("exp =", exp);
   let result;
