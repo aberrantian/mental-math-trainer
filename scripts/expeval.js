@@ -105,7 +105,7 @@ export function expEval(exp) {
     working_expression.slice(num_b_index +1)
   );
 
-  if (working_expression.length > 1) {
+  if (working_expression.length > 1 && working_expression.length < exp) {
     expEval(working_expression);
   } else {
     console.log(working_expression)
