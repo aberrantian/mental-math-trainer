@@ -71,7 +71,7 @@ function replace(first_half, replacement, second_half) {
   return new_array;
 }
 
-function PEDMAS(array) {
+function PEMDAS(array) {
   for (let index = 0; index < array.length; index++) {
     if (array[index] === "*") {
       return index;
@@ -101,24 +101,28 @@ function PEDMAS(array) {
 }
 
 export function expEval(exp = [3, "+", 4, "/", 5, "*", 6, "+", 5]) {
-  console.log("exp =", exp);
-  let result;
+  let working_expression = cloneArray(exp)
+  console.log(working_expression)
+  let target_operator = PEMDAS(working_expression);
 
-    for (let index = 0; index < exp.length; index++) {
-      if (["*", "/", "+", "-"].includes(exp[index])) {
-        let a_index = index -1;
-        let b_index = index +1;
+  let num_a_index = target_operator -1;
+  let num_b_index = target_operator +1;
+  
+  let num_a = working_expression[num_a_index];
+  let num_b = working_expression[num_b_index];
 
-        let a = exp[a_index];
-        let b = exp[b_index];
+  working_expression = replace(
+    working_expression.slice(0, num_a_index),
+    operate(num_a, working_expression[target_operator], num_b),
+    working_expression.slice(num_b_index +1)
+  );
 
-        result = replace(exp.slice(0, a_index), operate(a, exp[index], b), exp.slice(b_index +1));
-        break;
-      }
-    }
-
-  console.log(result);
-  return result;
+  if (working_expression.length > 1) {
+    expEval(working_expression);
+  } else {
+    console.log(working_expression)
+    return working_expression[0];
+  }
 }
 
 /*
