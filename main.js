@@ -18,6 +18,7 @@ NEW_EXP.innerText = "new";
 NEW_EXP.style = "position: absolute; top: 32px"
 
 NEW_EXP.addEventListener('click', () => {
+    console.clear();
     exp = expGen();
     answer = expEval(exp);
     EXP_DIV.innerText = exp.join(" ") + " = " + answer;
