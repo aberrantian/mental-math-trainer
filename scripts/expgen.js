@@ -1,7 +1,7 @@
 import { rng } from "./rng.js";
 
 export function expGen() {
-    const OPS = ["x", "/", "+", "-"];
+    const OPS = ["*", "/", "+", "-"];
     const NUM_A = rng(3, 9);
     const OP = OPS[rng(0, 3)];
     const NUM_B = rng(3, 9);
