@@ -16,3 +16,8 @@ body {
 	justify-content: center;
 	text-align: center;
 }
+
+#expression-container {
+	display: flex;
+	white-space: pre;
+}

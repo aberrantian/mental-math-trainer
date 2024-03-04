@@ -1,5 +1,6 @@
 import { expGen } from "./scripts/expgen.js";
 import { expEval } from "./scripts/expeval.js";
+import { inputHandler } from "./scripts/inputhandler.js";
 
 let exp = expGen();
 let answer = expEval(exp);
@@ -22,6 +23,10 @@ NEW_EXP.addEventListener('click', () => {
     exp = expGen();
     answer = expEval(exp);
     EXP_DIV.innerText = exp.join(" ") + " = ";
+    document.getElementById("user-input").innerText = "";
 });
 
 document.body.append(NEW_EXP);
+
+
+document.body.addEventListener("keydown", inputHandler);
