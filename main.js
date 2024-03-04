@@ -6,7 +6,7 @@ let answer = expEval(exp);
 
 
 const EXP_DIV = document.getElementById("expression");
-EXP_DIV.innerText = exp.join(" ") + " = " + answer;
+EXP_DIV.innerText = exp.join(" ") + " = ";
 
 const WARNING = document.createElement("div");
 WARNING.innerText = "Dev Branch";
@@ -21,7 +21,7 @@ NEW_EXP.addEventListener('click', () => {
     console.clear();
     exp = expGen();
     answer = expEval(exp);
-    EXP_DIV.innerText = exp.join(" ") + " = " + answer;
+    EXP_DIV.innerText = exp.join(" ") + " = ";
 });
 
 document.body.append(NEW_EXP);
