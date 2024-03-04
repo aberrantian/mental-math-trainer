@@ -13,16 +13,4 @@ export function inputHandler(event) {
     } else {
         return;
     }
-/*
-IF input === number
-    add number to user input
-    IF user input === expeval
-        new exp
-    ELSE
-        RETURN
-ELSE IF input === valid action
-    perform action
-ELSE
-    RETURN
-*/
 }
