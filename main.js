@@ -11,11 +11,6 @@ EXP_DIV.innerText = exp.join(" ") + " = ";
 
 const USER_INPUT = document.getElementById("user-input");
 
-const WARNING = document.createElement("div");
-WARNING.innerText = "Dev Branch";
-WARNING.style = "font-size: 0.8rem;font-weight: bold;position: absolute;top: 0px;background-color: red; width: 100%;"
-document.body.append(WARNING);
-
 
 function newExp() {
     console.clear();
