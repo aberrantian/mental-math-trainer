@@ -41,9 +41,9 @@ body {
 	font-family: sans-serif;
 	font-size: 1rem;
 
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: min-content 1fr;
 }
 
 .header {
@@ -51,6 +51,8 @@ body {
 	user-select: none;
 
 	width: 100%;
+	height: min-content;
+
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -60,56 +62,57 @@ body {
 
 .content {
 	height: 100%;
-	max-width: 90%;
-	width: min-content;
+	width: 100%;
+	box-sizing: border-box;
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	gap: 16px;
 }
 
-#expression {
-	font-family: monospace;
-	text-wrap: nowrap;
-	text-align: center;
-	border: solid 2px var(--base);
-	border-radius: 8px;
-	background-color: var(--surface0);
-	width: 100%;
-	height: 4rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#user-input {
-	outline: none;
-	border: solid 2px var(--base);
-	border-radius: 8px;
-	font-family: monospace;
-	background-color: var(--surface0);
-	color: var(--text);
-	width: 100%;
-	height: 4rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-#keypad {
+#foobar {
 	display: grid;
 	grid-template-areas:
+		"expression expression expression expression"
+		"input input input input"
 		"one two three delete"
 		"four five six enter"
 		"seven eight nine enter"
 		"decimal zero minus enter";
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-rows: repeat(2, 4rem) repeat(4, 1fr);
 	gap: 8px;
+}
 
-	width: 100%;
+#expression {
+	font-family: monospace;
+	text-wrap: nowrap;
+	overflow-x: hidden;
+	text-align: center;
+	border: none;
+	border-radius: 8px;
+	background-color: var(--surface0);
+
+	display: flex;
 	justify-content: center;
+	align-items: center;
+	grid-area: expression;
+}
+
+#user-input {
+	outline: none;
+	border: none;
+	border-radius: 8px;
+	font-family: monospace;
+	background-color: var(--surface0);
+	color: var(--text);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	grid-area: input;
 }
 
 .keypad-button {
