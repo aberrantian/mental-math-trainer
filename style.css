@@ -89,10 +89,10 @@ body {
 #keypad {
 	display: grid;
 	grid-template-areas:
-		"one two three minus"
-		"four five six delete"
+		"one two three delete"
+		"four five six enter"
 		"seven eight nine enter"
-		"decimal zero zero enter";
+		"decimal zero minus enter";
 	grid-template-columns: repeat(4, 4rem);
 	grid-template-rows: repeat(4, 4rem);
 	gap: 8px;
