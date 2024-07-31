@@ -76,11 +76,6 @@ body {
 	padding: 0.5rem 1rem;
 }
 
-#equal-sign {
-	margin: 0px;
-	font-family: monospace;
-}
-
 #user-input {
 	outline: none;
 	border: solid 2px var(--mantle);
@@ -100,6 +95,7 @@ body {
 		"decimal zero zero enter";
 	grid-template-columns: repeat(4, 4rem);
 	grid-template-rows: repeat(4, 4rem);
+	gap: 8px;
 }
 
 .keypad-button {
@@ -108,6 +104,11 @@ body {
 	outline: none;
 	background-color: var(--base);
 	color: var(--text);
+	border-radius: 8px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .keypad-button:hover {
@@ -120,8 +121,12 @@ body {
 	z-index: 1;
 }
 
+.keypad-button>img {
+	height: 2rem;
+	width: 2rem;
+}
+
 #expression,
-#equal-sign,
 #user-input,
 .keypad-button {
 	font-size: 2rem;
@@ -129,7 +134,6 @@ body {
 
 #keypad-1 {
 	grid-area: one;
-	border-top-left-radius: 8px;
 }
 
 #keypad-2 {
@@ -170,12 +174,10 @@ body {
 
 #keypad-decimal {
 	grid-area: decimal;
-	border-bottom-left-radius: 8px;
 }
 
 #keypad-minus {
 	grid-area: minus;
-	border-top-right-radius: 8px;
 }
 
 #keypad-delete {
@@ -184,5 +186,4 @@ body {
 
 #keypad-enter {
 	grid-area: enter;
-	border-bottom-right-radius: 8px;
 }
