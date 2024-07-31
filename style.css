@@ -111,12 +111,11 @@ body {
 }
 
 .keypad-button:hover {
-	background-color: var(--surface0);
 	cursor: pointer;
 }
 
 .keypad-button:active {
-	background-color: var(--surface1);
+	background-color: var(--surface0);
 	outline: solid 2px var(--text);
 	z-index: 1;
 }
