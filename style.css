@@ -1,4 +1,34 @@
-html, body {
+:root {
+	--rosewater: #f2d5cf;
+	--flamingo: #eebebe;
+	--pink: #f4b8e4;
+	--mauve: #ca9ee6;
+	--red: #e78284;
+	--maroon: #ea999c;
+	--peach: #ef9f76;
+	--yellow: #e5c890;
+	--green: #a6d189;
+	--teal: #81c8be;
+	--sky: #99d1db;
+	--sapphire: #85c1dc;
+	--blue: #8caaee;
+	--lavender: #babbf1;
+	--text: #c6d0f5;
+	--subtext1: #b5bfe2;
+	--subtext0: #a5adce;
+	--overlay2: #949cbb;
+	--overlay1: #838ba7;
+	--overlay0: #737994;
+	--surface2: #626880;
+	--surface1: #51576d;
+	--surface0: #414559;
+	--base: #303446;
+	--mantle: #292c3c;
+	--crust: #232634;
+}
+
+html,
+body {
 	height: 100%;
 	width: 100%;
 	padding: 0px;
@@ -6,18 +36,154 @@ html, body {
 }
 
 body {
-	background-color: black;
-	color: white;
-	font-family: monospace;
-	font-size: 4rem;
+	color: var(--text);
+	font-family: sans-serif;
+	font-size: 1rem;
 
 	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+	flex-direction: column;
 }
 
-#expression-container {
+#header {
+	background-color: var(--crust);
+	user-select: none;
+
 	display: flex;
-	white-space: pre;
+	flex-direction: row;
+	justify-content: center;
+	padding: 8px;
+	text-wrap: nowrap;
+}
+
+#content {
+	background-color: var(--mantle);
+
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 16px;
+}
+
+#expression {
+	font-family: monospace;
+	text-wrap: nowrap;
+	text-align: center;
+	border: solid 2px var(--mantle);
+	border-radius: 8px;
+	background-color: var(--base);
+	padding: 0.5rem 1rem;
+}
+
+#equal-sign {
+	margin: 0px;
+	font-family: monospace;
+}
+
+#user-input {
+	outline: none;
+	border: solid 2px var(--mantle);
+	border-radius: 8px;
+	padding: 0.5rem 1rem;
+	font-family: monospace;
+	background-color: var(--base);
+	color: var(--text);
+}
+
+#keypad {
+	display: grid;
+	grid-template-areas:
+		"one two three minus"
+		"four five six delete"
+		"seven eight nine enter"
+		"decimal zero zero enter";
+	grid-template-columns: repeat(4, 4rem);
+	grid-template-rows: repeat(4, 4rem);
+}
+
+.keypad-button {
+	font-family: monospace;
+	border: none;
+	outline: none;
+	background-color: var(--base);
+	color: var(--text);
+}
+
+.keypad-button:hover {
+	background-color: var(--surface0);
+	cursor: pointer;
+}
+
+.keypad-button:active {
+	background-color: var(--surface1);
+	outline: solid 2px var(--text);
+	z-index: 1;
+}
+
+#expression,
+#equal-sign,
+#user-input,
+.keypad-button {
+	font-size: 2rem;
+}
+
+#keypad-1 {
+	grid-area: one;
+	border-top-left-radius: 8px;
+}
+
+#keypad-2 {
+	grid-area: two;
+}
+
+#keypad-3 {
+	grid-area: three;
+}
+
+#keypad-4 {
+	grid-area: four;
+}
+
+#keypad-5 {
+	grid-area: five;
+}
+
+#keypad-6 {
+	grid-area: six;
+}
+
+#keypad-7 {
+	grid-area: seven;
+}
+
+#keypad-8 {
+	grid-area: eight;
+}
+
+#keypad-9 {
+	grid-area: nine;
+}
+
+#keypad-0 {
+	grid-area: zero;
+}
+
+#keypad-decimal {
+	grid-area: decimal;
+	border-bottom-left-radius: 8px;
+}
+
+#keypad-minus {
+	grid-area: minus;
+	border-top-right-radius: 8px;
+}
+
+#keypad-delete {
+	grid-area: delete;
+}
+
+#keypad-enter {
+	grid-area: enter;
+	border-bottom-right-radius: 8px;
 }
