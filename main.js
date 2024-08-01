@@ -18,7 +18,6 @@ function newExp() {
     USER_INPUT.innerText = "";
 }
 
-
 document.body.addEventListener("keydown", (e) => {
     inputHandler(e);
 });
