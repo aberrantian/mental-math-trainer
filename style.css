@@ -24,7 +24,7 @@
 	--surface0: #414559;
 	--base: #303446;
 	--mantle: #292c3c;
-	--crust: #232634
+	--crust: #232634;
 }
 
 body,
@@ -32,7 +32,7 @@ html {
 	height: 100%;
 	width: 100%;
 	padding: 0;
-	margin: 0
+	margin: 0;
 }
 
 body {
@@ -42,19 +42,18 @@ body {
 	font-size: 1rem;
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: min-content 1fr
+	grid-template-rows: min-content 1fr;
 }
 
 .header {
 	background-color: var(--mantle);
 	user-select: none;
 	width: 100%;
-	height: min-content;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	padding: 8px 0;
-	text-wrap: nowrap
+	text-wrap: nowrap;
 }
 
 .content {
@@ -64,7 +63,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center
+	justify-content: center;
 }
 
 #foobar {
@@ -78,8 +77,12 @@ body {
 		"decimal zero minus enter"
 	;
 	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: repeat(2, 4rem) repeat(4, 1fr);
-	gap: 8px
+	grid-template-rows: repeat(6, 1fr);
+	gap: 8px;
+	padding: 16px;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
 }
 
 #expression {
@@ -93,7 +96,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	grid-area: expression
+	grid-area: expression;
 }
 
 #user-input {
@@ -107,101 +110,98 @@ body {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	grid-area: input
+	grid-area: input;
 }
 
 .keypad-button {
 	font-family: monospace;
 	border: none;
-	outline: 0;
 	background-color: var(--surface0);
 	color: var(--text);
 	border-radius: 8px;
-	min-height: 4rem;
-	min-width: 4rem;
 	display: flex;
 	justify-content: center;
-	align-items: center
+	align-items: center;
 }
 
 .keypad-button:hover {
-	cursor: pointer
+	cursor: pointer;
 }
 
 .keypad-button:active {
 	outline: solid 2px var(--text);
-	z-index: 1
+	z-index: 1;
 }
 
 .keypad-button>img {
 	height: 2rem;
-	width: 2rem
+	width: 2rem;
 }
 
 #expression,
 #user-input,
 .keypad-button {
-	font-size: 2rem
+	font-size: 2rem;
 }
 
 #expression,
 #user-input {
 	box-sizing: border-box;
-	padding: 0 8px
+	padding: 0 8px;
 }
 
 #keypad-1 {
-	grid-area: one
+	grid-area: one;
 }
 
 #keypad-2 {
-	grid-area: two
+	grid-area: two;
 }
 
 #keypad-3 {
-	grid-area: three
+	grid-area: three;
 }
 
 #keypad-4 {
-	grid-area: four
+	grid-area: four;
 }
 
 #keypad-5 {
-	grid-area: five
+	grid-area: five;
 }
 
 #keypad-6 {
-	grid-area: six
+	grid-area: six;
 }
 
 #keypad-7 {
-	grid-area: seven
+	grid-area: seven;
 }
 
 #keypad-8 {
-	grid-area: eight
+	grid-area: eight;
 }
 
 #keypad-9 {
-	grid-area: nine
+	grid-area: nine;
 }
 
 #keypad-0 {
-	grid-area: zero
+	grid-area: zero;
 }
 
 #keypad-decimal {
-	grid-area: decimal
+	grid-area: decimal;
 }
 
 #keypad-minus {
-	grid-area: minus
+	grid-area: minus;
 }
 
 #keypad-delete {
-	grid-area: delete
+	grid-area: delete;
 }
 
 #keypad-enter {
-	grid-area: enter
+	grid-area: enter;
 }
