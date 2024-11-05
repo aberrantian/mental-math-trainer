@@ -72,7 +72,7 @@ function replace(first_half, replacement, second_half) {
 }
 
 function PEMDAS(array) {
-  /*Support for Parenthesis and Exponents will be added in the future*/
+  /*Support for Parenthesis and Exponents MAY be added in the future, or not, idk bro*/
   
   for (let index = 0; index < array.length; index++) {
     if (array[index] === "*" || array[index] === "/") {
