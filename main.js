@@ -2,6 +2,9 @@ import { expGen } from "./scripts/expgen.js";
 import { expEval } from "./scripts/expeval.js";
 import { inputHandler } from "./scripts/inputhandler.js";
 
+const VERSION = "2024-11-05 BETA";
+console.log(`VERSION: ${VERSION}`);
+
 let exp = expGen();
 let answer = expEval(exp);
 
