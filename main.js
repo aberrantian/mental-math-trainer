@@ -5,22 +5,21 @@ import { inputHandler } from "./scripts/inputhandler.js";
 const VERSION = "2024-11-05 BETA";
 console.log(`VERSION: ${VERSION}`);
 
-let exp = expGen();
-let answer = expEval(exp);
+const EXPRESSION_DIV = document.getElementById("expression");
+const USER_INPUT_DIV = document.getElementById("user-input");
 
-const EXP_DIV = document.getElementById("expression");
-EXP_DIV.innerText = exp.join(" ");
-
-const USER_INPUT = document.getElementById("user-input");
-
-function newExp() {
-    console.clear();
-    exp = expGen();
-    answer = expEval(exp);
-    EXP_DIV.innerText = exp.join(" ") + " = ";
-    USER_INPUT.innerText = "";
+const SET = {
+    expression: undefined,
+    evaluation: undefined,
+    new: () => {SET.expression = expGen(); SET.evaluation = expEval(SET.expression)}
 }
 
-document.body.addEventListener("keydown", (e) => {
-    inputHandler(e);
-});
+function display() {
+    SET.new()
+    let display_text = SET.expression.join(" ");
+    display_text = display_text.replace("/", "÷");
+    display_text = display_text.replace("*", "×");
+    EXPRESSION_DIV.innerText = display_text;
+}
+
+display();
