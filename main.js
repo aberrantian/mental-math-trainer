@@ -23,3 +23,12 @@ function display() {
 }
 
 display();
+
+document.addEventListener("keydown", (event) => {
+    inputHandler(event);
+
+    if (USER_INPUT_DIV.innerText === String(SET.evaluation)) {
+        display();
+        USER_INPUT_DIV.innerText = "";
+    }
+});
