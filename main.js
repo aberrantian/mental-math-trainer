@@ -2,7 +2,7 @@ import { expGen } from "./scripts/expgen.js";
 import { expEval } from "./scripts/expeval.js";
 import { inputHandler } from "./scripts/inputhandler.js";
 
-const VERSION = "2024-11-05 BETA";
+const VERSION = "2024-11-09 BETA";
 console.log(`VERSION: ${VERSION}`);
 
 const EXPRESSION_DIV = document.getElementById("expression");
@@ -24,11 +24,23 @@ function display() {
 
 display();
 
-document.addEventListener("keydown", (event) => {
-    inputHandler(event);
-
+function check() {
     if (USER_INPUT_DIV.innerText === String(SET.evaluation)) {
         display();
         USER_INPUT_DIV.innerText = "";
     }
+
+    return;
+}
+
+document.addEventListener("keydown", (event) => {
+    inputHandler(event, "keydown");
+    check();
 });
+
+for (const BUTTON of document.querySelectorAll(".keypad-button")) {
+    BUTTON.addEventListener("click", (event) => {
+        inputHandler(event, "click");
+        check();
+    })
+}
