@@ -44,6 +44,11 @@ body {
 	/* justify-content: center; */
 }
 
+/* Icons block click events without this */
+.icon {
+	pointer-events: none;
+}
+
 /* .header {
 	background-color: var(--mantle);
 	user-select: none;
