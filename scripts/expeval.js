@@ -72,7 +72,7 @@ function replace(first_half, replacement, second_half) {
 }
 
 function PEMDAS(array) {
-  /*Support for Parenthesis and Exponents will be added in the future*/
+  /*Support for Parenthesis and Exponents MAY be added in the future, or not, idk bro*/
   
   for (let index = 0; index < array.length; index++) {
     if (array[index] === "*" || array[index] === "/") {
@@ -92,7 +92,7 @@ function PEMDAS(array) {
 
 export function expEval(exp) {
   let working_expression = cloneArray(exp)
-  console.log(working_expression)
+  // console.log(working_expression)
   let target_operator = PEMDAS(working_expression);
 
   let num_a_index = target_operator -1;
@@ -110,7 +110,7 @@ export function expEval(exp) {
   if (working_expression.length > 1 && working_expression.length < exp) {
     expEval(working_expression);
   } else {
-    console.log(working_expression)
+    // console.log(working_expression)
     return working_expression[0];
   }
 }

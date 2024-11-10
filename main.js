@@ -2,37 +2,45 @@ import { expGen } from "./scripts/expgen.js";
 import { expEval } from "./scripts/expeval.js";
 import { inputHandler } from "./scripts/inputhandler.js";
 
-let exp = expGen();
-let answer = expEval(exp);
+const VERSION = "2024-11-09 BETA";
+console.log(`VERSION: ${VERSION}`);
 
+const EXPRESSION_DIV = document.getElementById("expression");
+const USER_INPUT_DIV = document.getElementById("user-input");
 
-const EXP_DIV = document.getElementById("expression");
-EXP_DIV.innerText = exp.join(" ") + " = ";
-
-const USER_INPUT = document.getElementById("user-input");
-
-const GITHUB = document.createElement("a");
-GITHUB.innerText = "GitHub";
-GITHUB.style = "font-size: 0.8rem;font-weight: bold;position: absolute;top: 0px; width: 100%; color: white; text-align: center;"
-GITHUB.href = "https://github.com/aberrantian/mmt";
-GITHUB.referrerPolicy = "no-referrer";
-GITHUB.target = "_blank";
-document.body.append(GITHUB);
-
-
-function newExp() {
-    console.clear();
-    exp = expGen();
-    answer = expEval(exp);
-    EXP_DIV.innerText = exp.join(" ") + " = ";
-    USER_INPUT.innerText = "";
+const SET = {
+    expression: undefined,
+    evaluation: undefined,
+    new: () => {SET.expression = expGen(); SET.evaluation = expEval(SET.expression)}
 }
 
+function display() {
+    SET.new()
+    let display_text = SET.expression.join(" ");
+    display_text = display_text.replace("/", "÷");
+    display_text = display_text.replace("*", "×");
+    EXPRESSION_DIV.innerText = display_text;
+}
 
-document.body.addEventListener("keydown", (e) => {
-    inputHandler(e);
-    
-    if (USER_INPUT.innerText === String(answer)) {
-        newExp();
+display();
+
+function check() {
+    if (USER_INPUT_DIV.innerText === String(SET.evaluation)) {
+        display();
+        USER_INPUT_DIV.innerText = "";
     }
+
+    return;
+}
+
+document.addEventListener("keydown", (event) => {
+    inputHandler(event, "keydown");
+    check();
 });
+
+for (const BUTTON of document.querySelectorAll(".keypad-button")) {
+    BUTTON.addEventListener("click", (event) => {
+        inputHandler(event, "click");
+        check();
+    })
+}

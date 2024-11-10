@@ -21,7 +21,6 @@ export function expGen() {
         num_b = rng(3, 9);
     }
 
-
     const EXP = [];
     EXP.push(NUM_A, OP, num_b);
     return EXP;
